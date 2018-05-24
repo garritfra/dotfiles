@@ -11,6 +11,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'maralla/completor.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wakatime/vim-wakatime'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
