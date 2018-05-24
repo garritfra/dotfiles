@@ -17,7 +17,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax on
-set number
+set relativenumber
 set smartindent
 set tabstop=4
 set shiftwidth=4
