@@ -18,8 +18,6 @@ filetype plugin indent on    " required
 
 syntax on
 set number relativenumber
-set nonumber norelativenumber  " turn hybrid line numbers off
-set !number !relativenumber    " toggle hybrid line numbers
 set smartindent
 set tabstop=4
 set shiftwidth=4
