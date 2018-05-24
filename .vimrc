@@ -7,11 +7,10 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'junegunn/fzf'
 Plugin 'itchyny/lightline.vim'
+Plugin 'maralla/completor.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wakatime/vim-wakatime'
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required
