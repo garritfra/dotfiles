@@ -1,2 +1,13 @@
-set number
 syntax on
+set number
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+inoremap {<cr> {<cr>}<c-o><s-o>
+inoremap [<cr> [<cr>]<c-o><s-o>
+inoremap (<cr> (<cr>)<c-o><s-o>
+
+
+
