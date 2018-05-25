@@ -50,4 +50,4 @@ colorscheme onedark
 inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
 inoremap (<cr> (<cr>)<c-o><s-o>
-
+noremap , <C-w>w
