@@ -16,7 +16,7 @@ Plugin 'prettier/vim-prettier'
 Plugin 'joshdick/onedark.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lifepillar/vim-mucomplete'
- 
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -35,6 +35,10 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set backspace=indent,eol,start
+set showmatch
+set ignorecase
+set hidden
 
 set laststatus=2
 set noshowmode
