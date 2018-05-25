@@ -39,6 +39,7 @@ set backspace=indent,eol,start
 set showmatch
 set ignorecase
 set hidden
+set linebreak
 
 set laststatus=2
 set noshowmode
