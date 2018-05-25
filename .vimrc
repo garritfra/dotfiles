@@ -15,6 +15,7 @@ Plugin 'wakatime/vim-wakatime'
 Plugin 'kien/ctrlp.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'joshdick/onedark.vim'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -31,7 +32,6 @@ set noshowmode
 
 " Colorscheme
 colorscheme onedark
-
 
 " Autoclose Brackets
 inoremap {<cr> {<cr>}<c-o><s-o>
