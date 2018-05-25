@@ -12,6 +12,8 @@ Plugin 'maralla/completor.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'kien/ctrlp.vim'
+Plugin 'prettier/vim-prettier'
+Plugin 'joshdick/onedark.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -26,9 +28,9 @@ set expandtab
 set laststatus=2
 set noshowmode
 
+colorscheme onedark
+
 inoremap {<cr> {<cr>}<c-o><s-o>
 inoremap [<cr> [<cr>]<c-o><s-o>
 inoremap (<cr> (<cr>)<c-o><s-o>
-
-
 
