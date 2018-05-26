@@ -16,9 +16,13 @@ Plugin 'prettier/vim-prettier'
 Plugin 'joshdick/onedark.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lifepillar/vim-mucomplete'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "completion settings:
 set completeopt+=menuone
@@ -31,16 +35,15 @@ let g:mucomplete#enable_auto_at_startup = 1
 
 syntax on
 set number relativenumber
-set smartindent
 set tabstop=4
 set shiftwidth=4
+set smartindent
 set expandtab
 set backspace=indent,eol,start
 set showmatch
 set ignorecase
 set hidden
 set linebreak
-
 set laststatus=2
 set noshowmode
 
