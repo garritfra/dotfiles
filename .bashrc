@@ -1,3 +1,6 @@
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
 
 function cd {
     builtin cd "$@" && ls 
