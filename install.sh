@@ -1,5 +1,4 @@
 #!/bin/bash
-clear
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "✨installing .vimrc✨"
@@ -13,7 +12,8 @@ echo "✨creating dev workspace✨"
 [ -d $HOME/dev ] && echo "dev workspace already exists" || mkdir $HOME/dev
 
 echo "✨installing latest node & npm✨"
-curl -sL https://git.io/n-install | bash -s -- -q
+curl -L https://git.io/n-install | bash
+sudo /n/bin/n
 
 echo "🎉installation complete🎉"
 echo "❗️reload bash for the changes to take effect❗️"
