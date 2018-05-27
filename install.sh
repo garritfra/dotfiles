@@ -13,8 +13,11 @@ cp ./rcs/.bashrc $HOME/.bash_profile
 echo "✨creating dev workspace✨"
 [ -d $HOME/dev ] && echo "dev workspace already exists" || mkdir $HOME/dev
 
+echo "✨installing GNU make"✨""
+sh ./modules/make.sh
+
 echo "✨installing latest node & npm✨"
-source modules/node.sh
+sh ./modules/node.sh
 
 if [ $? -eq 0 ]
 then
