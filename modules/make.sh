@@ -1,7 +1,8 @@
 #!/bin/bash
+if make -v; then exit 0
+fi
 
-apt-get -v
-if [ $? -eq 0 ]; then
+if [! apt-get -v]; then
     apt-get install make
 else
     brew install make
