@@ -12,7 +12,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'kien/ctrlp.vim'
-Plugin 'sbdchd/neoformat'
+Plugin 'prettier/vim-prettier'
 Plugin 'joshdick/onedark.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lifepillar/vim-mucomplete'
@@ -21,20 +21,6 @@ Plugin 'mxw/vim-jsx'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-
-autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat  " Autoformat
-
-"completion settings:
-set completeopt+=menuone
-set completeopt+=noselect
-set completeopt+=noinsert
-set shortmess+=c   " Shut off completion messages
-set belloff+=ctrlg " If Vim beeps during completion
-let g:mucomplete#enable_auto_at_startup = 1
-
-
 
 syntax on                       " Enable syntax highlighting
 set number relativenumber       " Show line numbers in relative manner
@@ -51,6 +37,21 @@ set linebreak
 set laststatus=2
 set noshowmode
 
+" CtrlP ignored files
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" when running at every change you may want to disable quickfix
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+autocmd BufWritePre,TextChanged,InsertLeave *.js,*.css,*.scss,*.less PrettierAsync
+
+"completion settings:
+set completeopt+=menuone
+set completeopt+=noselect
+set completeopt+=noinsert
+set shortmess+=c   " Shut off completion messages
+set belloff+=ctrlg " If Vim beeps during completion
+let g:mucomplete#enable_auto_at_startup = 1
 " Colorscheme
 " colorscheme onedark
 
