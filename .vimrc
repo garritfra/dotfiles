@@ -33,8 +33,9 @@ set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
 
 
-syntax on
-set number relativenumber
+syntax on                       " Enable syntax highlighting
+set number relativenumber       " Show line numbers in relative manner
+set mouse=a                     " Enable mouse
 set tabstop=4
 set shiftwidth=4
 set smartindent
