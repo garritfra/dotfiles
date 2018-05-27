@@ -52,7 +52,7 @@ set laststatus=2
 set noshowmode
 
 " Colorscheme
-colorscheme onedark
+" colorscheme onedark
 
 " Autoclose Brackets
 inoremap {<cr> {<cr>}<c-o><s-o>
