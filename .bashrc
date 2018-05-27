@@ -122,5 +122,16 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1+='$(parse_git_branch)\[\033[00m\]\$ '
+else
+ PS1+='$(parse_git_branch)\$ '
+fi
+
+
 PS1+="🔥🦄 "
 
