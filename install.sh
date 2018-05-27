@@ -13,7 +13,7 @@ echo "✨creating dev workspace✨"
 
 echo "✨installing latest node & npm✨"
 curl -L https://git.io/n-install | bash
-sudo /n/bin/n
+sudo $HOME/n/bin/n
 
 echo "🎉installation complete🎉"
 echo "❗️reload bash for the changes to take effect❗️"
