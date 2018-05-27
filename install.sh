@@ -1,7 +1,9 @@
 #!/bin/bash
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+
 
 echo "✨installing .vimrc✨"
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp ./rcs/.vimrc $HOME/.vimrc
 
 echo "✨installing .bashrc✨"
@@ -12,7 +14,7 @@ echo "✨creating dev workspace✨"
 [ -d $HOME/dev ] && echo "dev workspace already exists" || mkdir $HOME/dev
 
 echo "✨installing latest node & npm✨"
-source node.sh
+source modules/node.sh
 
 if [ $? -eq 0 ]
 then
