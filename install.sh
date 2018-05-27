@@ -10,6 +10,6 @@ cp ./.bashrc $HOME/.bashrc
 cp ./.bashrc $HOME/.bash_profile
 
 echo "creating dev workspace"
-[ -d $HOME/Documents/dev ] && echo "dev workspace already exists" || mkdir $HOME/Documents/dev echo
+[ -d $HOME/dev ] && echo "dev workspace already exists" || mkdir $HOME/dev
 
 echo "installation complete"
