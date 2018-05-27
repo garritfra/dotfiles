@@ -12,7 +12,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'wakatime/vim-wakatime'
 Plugin 'kien/ctrlp.vim'
-Plugin 'prettier/vim-prettier'
+Plugin 'sbdchd/neoformat'
 Plugin 'joshdick/onedark.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'lifepillar/vim-mucomplete'
@@ -24,6 +24,8 @@ filetype plugin indent on    " required
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
+autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat  " Autoformat
+
 "completion settings:
 set completeopt+=menuone
 set completeopt+=noselect
@@ -31,6 +33,7 @@ set completeopt+=noinsert
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
+
 
 
 syntax on                       " Enable syntax highlighting
