@@ -23,6 +23,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax on                       " Enable syntax highlighting
+set colorcolumn=81              " Show a column after 80 chars
 set number relativenumber       " Show line numbers in relative manner
 set mouse=a                     " Enable mouse
 set tabstop=4
