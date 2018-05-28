@@ -22,6 +22,7 @@ Plugin 'mxw/vim-jsx'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+let mapleader=" "                           " Set leader key
 syntax on                                   " Enable syntax highlighting
 call matchadd('ColorColumn', '\%81v', 100)  " Show a column after 80 chars
 set number relativenumber                   " Show line numbers in relative manner
