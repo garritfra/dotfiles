@@ -22,10 +22,10 @@ Plugin 'mxw/vim-jsx'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-syntax on                       " Enable syntax highlighting
-set colorcolumn=81              " Show a column after 80 chars
-set number relativenumber       " Show line numbers in relative manner
-set mouse=a                     " Enable mouse
+syntax on                                   " Enable syntax highlighting
+call matchadd('ColorColumn', '\%81v', 100)  " Show a column after 80 chars
+set number relativenumber                   " Show line numbers in relative manner
+set mouse=a                                 " Enable mouse
 set tabstop=4
 set shiftwidth=4
 set smartindent
