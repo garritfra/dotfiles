@@ -136,6 +136,8 @@ else
  PS1+='$(parse_git_branch)'
 fi
 
+# Disable annoying Beep Sound in Arch
+xset b off 
 
 PS1+="\n► "
 
