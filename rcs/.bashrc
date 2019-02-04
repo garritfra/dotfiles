@@ -101,7 +101,7 @@ alias l='ls -CF'
 
 # Git aliases
 alias status='git status'
-alias add='git add -A'
+alias add='git add -A && git status'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -135,9 +135,6 @@ if [ "$color_prompt" = yes ]; then
 else
  PS1+='$(parse_git_branch)'
 fi
-
-# Disable annoying Beep Sound in Arch
-xset b off 
 
 PS1+="\n► "
 
