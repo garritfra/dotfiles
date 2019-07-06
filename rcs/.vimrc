@@ -47,6 +47,9 @@ let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
 autocmd BufWritePre,TextChanged,InsertLeave *.js,*.css,*.scss,*.less PrettierAsync
 
+" format on save
+autocmd BufWritePre *.js :normal gggqG
+
 "completion settings:
 set completeopt+=menuone
 set completeopt+=noselect
