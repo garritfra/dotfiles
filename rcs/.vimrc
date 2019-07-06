@@ -19,6 +19,9 @@ Plugin 'lifepillar/vim-mucomplete'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 
+" install plugins
+vim +PluginInstall +qall
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
