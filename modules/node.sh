@@ -12,4 +12,6 @@ else
 fi
 
 
+# install and update packages
+npm i -g npm
 npm i -g prettier
