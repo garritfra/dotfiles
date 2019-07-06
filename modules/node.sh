@@ -11,3 +11,5 @@ else
     sudo rm -rf $HOME/n
 fi
 
+
+npm i -g prettier
