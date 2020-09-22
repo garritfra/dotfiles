@@ -1,7 +1,0 @@
-git
-firefox
-htop
-neofetch
-sudo
-vim
-zsh
