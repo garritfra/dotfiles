@@ -74,6 +74,12 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+# Functions
+
+adb_screenshot() {
+    adb shell screencap -p > ~/Desktop/screenshot.png
+}
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
