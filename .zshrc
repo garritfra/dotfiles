@@ -80,6 +80,25 @@ adb_screenshot() {
     adb shell screencap -p > ~/Desktop/screenshot.png
 }
 
+pull_develop() {
+    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+    STASHED_CHANGES=$(git stash | wc -w)
+    echo "Changes have been stashed"
+
+    git checkout develop
+    git pull
+    git checkout $CURRENT_BRANCH
+
+    if [ $STASHED_CHANGES -gt 5 ] 
+    then
+        git stash pop
+        echo "Changes have been unstashed"
+    fi
+
+    echo "Pull complete"
+}
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
