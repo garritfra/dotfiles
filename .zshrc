@@ -125,10 +125,7 @@ pull_develop() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias bls="br -dp"
 alias vim="nvim"
-
-source /Users/frankeg/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 neofetch
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -137,3 +134,6 @@ fi
 
 autoload bashcompinit && bashcompinit
 alias config='/usr/bin/git --git-dir=/Users/frankeg/.cfg/ --work-tree=/Users/frankeg'
+
+# Start X if necessary
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
