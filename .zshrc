@@ -102,7 +102,14 @@ pull_develop() {
 checkout() {
     [ -z ${1+x} ] && echo "Usage: $0 <substring>" && return 1
     
-    BRANCHES=$(git branch | grep $1 | awk '{$1=$1};1')
+    git fetch
+
+    BRANCHES=$(git branch -a \
+        | sed "s/remotes\/origin\///; s/\*//; s/^ *//;s/ *$//" \
+        | awk '!seen[$0]++' \
+        | grep $1
+    )
+
     BRANCH_COUNT=$(echo $BRANCHES | wc -l)
     
     if [[ "$BRANCH_COUNT" -gt 1 ]]
