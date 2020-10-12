@@ -16,7 +16,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'lifepillar/vim-mucomplete'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'w0rp/ale'
 
 call vundle#end()            " required
