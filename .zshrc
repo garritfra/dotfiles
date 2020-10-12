@@ -149,6 +149,7 @@ checkout() {
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vim="nvim"
+alias note='vim ~/data/notes/$(date "+%y-%m-%d").md'
 
 neofetch
 if command -v pyenv 1>/dev/null 2>&1; then
