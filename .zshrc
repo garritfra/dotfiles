@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/frankeg/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/usr/local/bin/nvim"
-export CLIOPATH="/Users/frankeg/dev/clio"
 
 # Add scripts directory
 export PATH=$PATH:~/dev/scripts/
@@ -161,3 +160,7 @@ alias config='/usr/bin/git --git-dir=/Users/frankeg/.cfg/ --work-tree=/Users/fra
 
 # Start X if necessary
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
