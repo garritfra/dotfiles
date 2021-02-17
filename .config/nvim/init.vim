@@ -75,6 +75,30 @@ let g:ale_rust_rls_toolchain = 'stable'
 " inoremap (<cr> (<cr>)<c-o><s-o>
 " noremap , <C-w>w
 
+" Remove newbie crutches in Command Mode
+cnoremap <Down> <Nop>
+cnoremap <Left> <Nop>
+cnoremap <Right> <Nop>
+cnoremap <Up> <Nop>
+
+" Remove newbie crutches in Insert Mode
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+inoremap <Up> <Nop>
+
+" Remove newbie crutches in Normal Mode
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+
+" Remove newbie crutches in Visual Mode
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+vnoremap <Up> <Nop>
+
 " Remaps
 :autocmd BufWritePost * ALEFix
 
@@ -83,3 +107,6 @@ nnoremap <leader><Right> :tabn<CR>
 nnoremap <leader><Left> :tabp<CR>
 nnoremap <leader>gd :YcmCompleter GoTo<CR>
 nnoremap <leader>f :ALEFix<CR>
+
+nnoremap k gk
+nnoremap j gj

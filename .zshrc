@@ -2,8 +2,19 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/usr/local/bin/nvim"
 
+# Add Flutter
+export PATH=$PATH:~/sources/flutter/bin
+
 # Add scripts directory
-export PATH=$PATH:~/dev/scripts/
+export PATH=$PATH:~/sources/scripts/
+
+# Add cargo
+export PATH=$PATH:~/.cargo/bin
+
+# LLVM
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -156,7 +167,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 autoload bashcompinit && bashcompinit
-alias config='/usr/bin/git --git-dir=/Users/frankeg/.cfg/ --work-tree=/Users/frankeg'
 
 # Start X if necessary
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
@@ -164,3 +174,6 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
