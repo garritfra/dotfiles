@@ -11,6 +11,9 @@ export PATH=$PATH:~/sources/scripts/
 # Add cargo
 export PATH=$PATH:~/.cargo/bin
 
+# Add brew
+export PATH=/opt/homebrew/bin:$PATH
+
 # LLVM
 export PATH="/usr/local/opt/llvm/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
@@ -160,6 +163,7 @@ checkout() {
 
 alias vim="nvim"
 alias note='vim ~/data/notes/$(date "+%y-%m-%d").md'
+alias vimrc="vim ~/.config/nvim/init.vim"
 
 neofetch
 if command -v pyenv 1>/dev/null 2>&1; then
@@ -171,9 +175,11 @@ autoload bashcompinit && bashcompinit
 # Start X if necessary
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
+# NVM
+
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

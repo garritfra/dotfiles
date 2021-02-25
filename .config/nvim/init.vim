@@ -20,6 +20,8 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+Plug 'spolu/dwm.vim'
+
 " Defines the sneak motion
 Plug 'justinmk/vim-sneak'
 
@@ -48,8 +50,9 @@ set linebreak
 set laststatus=2
 set noshowmode
 
-" CtrlP ignored files
+" CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|target\|git'
+let g:ctrlp_show_hidden = 1
 
 " when running at every change you may want to disable quickfix
 let g:prettier#quickfix_enabled = 0
@@ -73,9 +76,22 @@ let g:ale_sign_warning = "⚠"
 "A.L.E Rust Settings
 "Various settings for Rust
 let g:ale_linters = {'rust': ['rls']}
-let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'rust': ['rustfmt']}
+let b:ale_fixers = {'javascript': ['prettier', 'eslint'], 'rust': ['rustfmt'], 'php': ['php_cs_fixer']}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier', 'eslint'],
+\   'rust': ['rustfmt'],
+\   'php': ['php_cs_fixer']
+\}
+
 let g:ale_rust_rls_executable = '/home/omar/.cargo/bin/rls'
 let g:ale_rust_rls_toolchain = 'stable'
+let g:ale_fix_on_save = 0
+
+" NerdTree
+
+let NERDTreeShowHidden=1
 
 " Colorscheme
 " colorscheme onedark
@@ -121,3 +137,10 @@ nnoremap <leader>f :ALEFix<CR>
 
 nnoremap k gk
 nnoremap j gj
+
+" NerdTree bindings
+nnoremap <leader>n :NERDTreeFocus<CR>
+" nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
