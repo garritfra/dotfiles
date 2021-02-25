@@ -1,23 +1,34 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'itchyny/lightline.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
-Plugin 'prettier/vim-prettier'
-Plugin 'joshdick/onedark.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'lifepillar/vim-mucomplete'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'w0rp/ale'
+" Install vim-plug if not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-call vundle#end()            " required
+call plug#begin()
+Plug 'scrooloose/syntastic'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'prettier/vim-prettier'
+Plug 'joshdick/onedark.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'lifepillar/vim-mucomplete'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+" Defines the sneak motion
+Plug 'justinmk/vim-sneak'
+
+" HTML auto completion
+Plug 'alvan/vim-closetag'
+
+Plug 'w0rp/ale'
+call plug#end()
+
 filetype plugin indent on    " required
 
 let mapleader=" "                           " Set leader key
