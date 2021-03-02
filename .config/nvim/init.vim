@@ -16,10 +16,15 @@ Plug 'kien/ctrlp.vim'
 Plug 'prettier/vim-prettier'
 Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'lifepillar/vim-mucomplete'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+" Vim Wiki
+Plug 'vimwiki/vimwiki'
+
+" DWM bindings
 Plug 'spolu/dwm.vim'
 
 " Defines the sneak motion
@@ -29,6 +34,9 @@ Plug 'justinmk/vim-sneak'
 Plug 'alvan/vim-closetag'
 
 Plug 'w0rp/ale'
+
+" Antimony syntax highlighting
+Plug 'antimony-lang/antimony.vim'
 call plug#end()
 
 filetype plugin indent on    " required
@@ -38,8 +46,9 @@ syntax on                                   " Enable syntax highlighting
 call matchadd('ColorColumn', '\%81v', 100)  " Show a column after 80 chars
 set number relativenumber                   " Show line numbers in relative manner
 set mouse=a                                 " Enable mouse
+set mousemodel=popup_setpos
 set tabstop=4
-set shiftwidth=4
+set shiftwidth=2
 set smartindent
 set expandtab
 set backspace=indent,eol,start
@@ -93,6 +102,11 @@ let g:ale_fix_on_save = 0
 
 let NERDTreeShowHidden=1
 
+" VimWiki
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " Colorscheme
 " colorscheme onedark
 
@@ -132,7 +146,7 @@ vnoremap <Up> <Nop>
 " Leader Remaps
 nnoremap <leader><Right> :tabn<CR>
 nnoremap <leader><Left> :tabp<CR>
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <leader>gd :ALEGoToDefinition<CR>
 nnoremap <leader>f :ALEFix<CR>
 
 nnoremap k gk
