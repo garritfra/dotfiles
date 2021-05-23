@@ -21,11 +21,9 @@ Plug 'lifepillar/vim-mucomplete'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
-" Vim Wiki
-Plug 'vimwiki/vimwiki'
-
-" DWM bindings
-Plug 'spolu/dwm.vim'
+" FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Defines the sneak motion
 Plug 'justinmk/vim-sneak'
@@ -94,53 +92,36 @@ let g:ale_fixers = {
 \   'php': ['php_cs_fixer']
 \}
 
-let g:ale_rust_rls_executable = '/home/omar/.cargo/bin/rls'
+let g:ale_rust_rls_executable = '~/.cargo/bin/rls'
 let g:ale_rust_rls_toolchain = 'stable'
-let g:ale_fix_on_save = 0
+" let g:ale_fix_on_save = 0
 
 " NerdTree
 
 let NERDTreeShowHidden=1
+let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
-" VimWiki
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
-" Colorscheme
-" colorscheme onedark
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
-" Autoclose Brackets
-" inoremap {<cr> {<cr>}<c-o><s-o>
-" inoremap [<cr> [<cr>]<c-o><s-o>
-" inoremap (<cr> (<cr>)<c-o><s-o>
-" noremap , <C-w>w
+" Mirror the NERDTree before showing it. This makes it the same on all tabs.
+nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFocus<CR>
 
-" Remove newbie crutches in Command Mode
-cnoremap <Down> <Nop>
-cnoremap <Left> <Nop>
-cnoremap <Right> <Nop>
-cnoremap <Up> <Nop>
-
-" Remove newbie crutches in Insert Mode
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-inoremap <Up> <Nop>
-
-" Remove newbie crutches in Normal Mode
-nnoremap <Down> <Nop>
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Up> <Nop>
-
-" Remove newbie crutches in Visual Mode
-vnoremap <Down> <Nop>
-vnoremap <Left> <Nop>
-vnoremap <Right> <Nop>
-vnoremap <Up> <Nop>
-
+" -----------------------
 " Remaps
+" -----------------------
+
+
 :autocmd BufWritePost * ALEFix
 
 " Leader Remaps
@@ -153,8 +134,23 @@ nnoremap k gk
 nnoremap j gj
 
 " NerdTree bindings
-nnoremap <leader>n :NERDTreeFocus<CR>
-" nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
+" ctrl up/down (Move lines)
+nnoremap <C-j> :m .+1<CR>==
+nnoremap <C-k> :m .-2<CR>==
+inoremap <C-j> <Esc>:m .+1<CR>==gi
+inoremap <C-k> <Esc>:m .-2<CR>==gi
+vnoremap <C-j> :m '>+1<CR>gv=gv
+vnoremap <C-k> :m '<-2<CR>gv=gv
+
+" ctrl shift f (Find in directory)
+nnoremap <C-F> :Rg<CR>
+vnoremap <C-F> :Rg<CR>
+
+" Use yank to copy to clipboard
+vnoremap y "*y
+
+" ctrl w (close tab)
+nnoremap <C-w> :tabclose<CR>
