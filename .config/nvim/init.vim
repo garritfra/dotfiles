@@ -13,9 +13,7 @@ Plug 'gruvbox-community/gruvbox'
 Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'kien/ctrlp.vim'
 Plug 'prettier/vim-prettier'
-Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'lifepillar/vim-mucomplete'
@@ -63,10 +61,6 @@ set laststatus=2
 set noshowmode
 set nohlsearch
 
-" CtrlP
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|target\|git'
-let g:ctrlp_show_hidden = 1
-
 " when running at every change you may want to disable quickfix
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
@@ -79,6 +73,9 @@ set completeopt+=noinsert
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
+
+" FZF
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 "Vim A.L.E
     "Enable A.L.E
@@ -154,6 +151,9 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " ctrl shift f (Find in directory)
 nnoremap <C-F> :Rg<CR>
 vnoremap <C-F> :Rg<CR>
+
+" ctrl p (Find file)
+nnoremap <C-p> :Files<CR>
 
 " Use yank to copy to clipboard
 vnoremap y "*y
