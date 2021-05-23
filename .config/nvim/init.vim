@@ -9,6 +9,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'gruvbox-community/gruvbox'
 Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
@@ -39,6 +40,8 @@ call plug#end()
 
 filetype plugin indent on    " required
 
+colorscheme gruvbox
+
 let mapleader=" "                           " Set leader key
 syntax on                                   " Enable syntax highlighting
 call matchadd('ColorColumn', '\%81v', 100)  " Show a column after 80 chars
@@ -51,11 +54,14 @@ set smartindent
 set expandtab
 set backspace=indent,eol,start
 set showmatch
+set noswapfile
 set ignorecase
+set scrolloff=8
 set hidden
 set linebreak
 set laststatus=2
 set noshowmode
+set nohlsearch
 
 " CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|target\|git'
