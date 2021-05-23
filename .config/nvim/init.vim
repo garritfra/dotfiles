@@ -45,8 +45,8 @@ call matchadd('ColorColumn', '\%81v', 100)  " Show a column after 80 chars
 set number relativenumber                   " Show line numbers in relative manner
 set mouse=a                                 " Enable mouse
 set mousemodel=popup_setpos
-set tabstop=4
-set shiftwidth=2
+set tabstop=4 softtabstop=4
+set shiftwidth=4
 set smartindent
 set expandtab
 set backspace=indent,eol,start
