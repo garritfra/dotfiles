@@ -23,6 +23,11 @@ Plug 'mxw/vim-jsx'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" Telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Defines the sneak motion
 Plug 'justinmk/vim-sneak'
 
@@ -227,7 +232,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " FZF
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --no-ignore-vcs'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --no-ignore-vcs -g "!.git/" -g "!node_modules/"'
 
 " NerdTree
 
@@ -237,15 +242,6 @@ let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
-
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFind<CR>
@@ -276,11 +272,12 @@ vnoremap <C-M-j> :m '>+1<CR>gv=gv
 vnoremap <C-M-k> :m '<-2<CR>gv=gv
 
 " ctrl shift f (Find in directory)
-nnoremap <C-F> :Rg<CR>
-vnoremap <C-F> :Rg<CR>
+nnoremap <C-F> <cmd>Telescope live_grep<cr>
+vnoremap <C-F> <cmd>Telescope live_grep<cr>
 
 " ctrl p (Find file)
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> <cmd>Telescope find_files<cr><CR>
+vnoremap <C-p> <cmd>Telescope find_files<cr><CR>
 
 " Use yank to copy to clipboard
 vnoremap y "*y
