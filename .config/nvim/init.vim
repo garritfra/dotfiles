@@ -17,7 +17,7 @@ Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'mxw/vim-jsx'
-Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
 Plug 'luochen1990/rainbow'
 
 " FZF
