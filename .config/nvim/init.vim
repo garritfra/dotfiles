@@ -16,8 +16,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'luochen1990/rainbow'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -246,6 +247,9 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
 nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFind<CR>
 
+" Rainbow Brackets
+let g:rainbow_active = 1
+
 " -----------------------
 " Remaps
 " -----------------------
@@ -261,7 +265,6 @@ nnoremap j gj
 
 " NerdTree bindings
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
 
 " ctrl alt up/down (Move lines)
 nnoremap <C-M-j> :m .+1<CR>==
@@ -276,8 +279,8 @@ nnoremap <C-F> <cmd>Telescope live_grep<cr>
 vnoremap <C-F> <cmd>Telescope live_grep<cr>
 
 " ctrl p (Find file)
-nnoremap <C-p> <cmd>Telescope find_files<cr><CR>
-vnoremap <C-p> <cmd>Telescope find_files<cr><CR>
+nnoremap <C-p> <cmd>Telescope find_files<CR>
+vnoremap <C-p> <cmd>Telescope find_files<CR>
 
 " Use yank to copy to clipboard
 vnoremap y "*y

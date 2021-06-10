@@ -1,3 +1,4 @@
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/usr/local/bin/nvim"
@@ -11,8 +12,14 @@ export PATH=$PATH:~/sources/scripts/
 # Add cargo
 export PATH=$PATH:~/.cargo/bin
 
-# Add brew
-export PATH=/opt/homebrew/bin:$PATH
+# Add homebrew (multiple platforms)
+CPU=$(uname -p)
+if [[ "$CPU" == "arm" ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  alias oldbrew=/usr/local/bin/brew
+else
+  export PATH="/usr/local/bin:$PATH"
+fi
 
 # LLVM
 export PATH="/usr/local/opt/llvm/bin:$PATH"
