@@ -10,14 +10,13 @@ endif
 
 call plug#begin()
 Plug 'gruvbox-community/gruvbox'
-Plug 'scrooloose/syntastic'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 Plug 'luochen1990/rainbow'
 
 " FZF
@@ -70,6 +69,21 @@ set linebreak
 set laststatus=2
 set noshowmode
 set nohlsearch
+
+
+" Fix for smart indent edge-case
+" https://vi.stackexchange.com/a/22924
+filetype indent off
+function F_ind()
+   let n_ind = indent(line('.'))
+   let n_col = col('.') - 1
+   if n_col > n_ind
+      return "\n" . repeat("\t", n_ind / 4)
+   else
+      return "\n" . repeat("\t", n_col / 4)
+   endif
+endfunction
+imap <expr> <CR> F_ind()
 
 " when running at every change you may want to disable quickfix
 let g:prettier#quickfix_enabled = 0
