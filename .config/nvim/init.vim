@@ -70,6 +70,11 @@ set laststatus=2
 set noshowmode
 set nohlsearch
 
+" Reload changes from disk whenever the file changed
+" https://stackoverflow.com/a/41012424/9046809
+set autoread
+autocmd FocusGained * checktime
+
 
 " Fix for smart indent edge-case
 " https://vi.stackexchange.com/a/22924
