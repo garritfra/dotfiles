@@ -296,6 +296,7 @@ nnoremap <leader><Right> :tabn<CR>
 nnoremap <leader><h> :tabn<CR>
 nnoremap <leader><Left> :tabp<CR>
 nnoremap <leader><l> :tabp<CR>
+nnoremap <leader><b> :Telescope git_branches<CR>
 
 nnoremap k gk
 nnoremap j gj
