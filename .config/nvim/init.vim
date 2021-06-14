@@ -18,6 +18,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'luochen1990/rainbow'
+Plug 'preservim/nerdcommenter'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -110,6 +111,11 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
+" NERDCommenter
+
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
 
 " COC
 
