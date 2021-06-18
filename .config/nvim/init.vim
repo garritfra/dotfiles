@@ -297,10 +297,13 @@ nnoremap <leader><Right> :tabn<CR>
 nnoremap <leader><h> :tabn<CR>
 nnoremap <leader><Left> :tabp<CR>
 nnoremap <leader><l> :tabp<CR>
-nnoremap <leader><b> :Telescope git_branches<CR>
+nnoremap <leader>b :Telescope git_branches<CR>
 
 nnoremap k gk
 nnoremap j gj
+
+" Alt-Backspace to delete word backwards
+inoremap <M-BS> <C-w>
 
 " NerdTree bindings
 nnoremap <C-t> :NERDTreeToggle<CR>
