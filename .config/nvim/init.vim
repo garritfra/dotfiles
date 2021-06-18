@@ -19,6 +19,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
+Plug 'kshenoy/vim-signature'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -107,7 +108,7 @@ let g:mucomplete#enable_auto_at_startup = 1
 " diagnostics appear/become resolved.
 if has("nvim-0.5.0") || has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+  set signcolumn=yes:2
 else
   set signcolumn=yes
 endif
