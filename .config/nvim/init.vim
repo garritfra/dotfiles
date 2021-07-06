@@ -1,3 +1,5 @@
+" Fundamentals "{{{
+" ---------------------------------------------------------------------
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -8,75 +10,19 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin()
-Plug 'gruvbox-community/gruvbox'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'prettier/vim-prettier'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'luochen1990/rainbow'
-Plug 'preservim/nerdcommenter'
-Plug 'kshenoy/vim-signature'
-
-" FZF
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-
-" Telescope
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-" Defines the sneak motion
-Plug 'justinmk/vim-sneak'
-
-" HTML auto completion
-Plug 'alvan/vim-closetag'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Antimony syntax highlighting
-Plug 'antimony-lang/antimony.vim'
-call plug#end()
+"}}}
 
 filetype plugin indent on    " required
+
+" Load plugins
+runtime ./plug.vim
 
 colorscheme gruvbox
 
 let mapleader=" "                           " Set leader key
-syntax on                                   " Enable syntax highlighting
-call matchadd('ColorColumn', '\%81v', 100)  " Show a column after 80 chars
 
-set number relativenumber                   " Show line numbers in relative manner
-set mouse=a                                 " Enable mouse
-set updatetime=300                          " Quicker update time means snappier feedback
-set mousemodel=popup_setpos
-set tabstop=4 softtabstop=4
-set shiftwidth=4
-set smartindent
-set expandtab
-set backspace=indent,eol,start
-set showmatch
-set noswapfile
-set nobackup
-set nowritebackup
-set shortmess+=c                            " Don't pass messages to |ins-completion-menu|.
-set cmdheight=2                             " Give more space for displaying messages.
-set ignorecase
-set scrolloff=8
-set hidden
-set linebreak
-set laststatus=2
-set noshowmode
-set nohlsearch
-
-" Reload changes from disk whenever the file changed
-" https://stackoverflow.com/a/41012424/9046809
-set autoread
-autocmd FocusGained * checktime
-
+" Set variables
+runtime ./sets.vim
 
 " Fix for smart indent edge-case
 " https://vi.stackexchange.com/a/22924
@@ -100,6 +46,7 @@ let g:prettier#autoformat = 0
 set completeopt+=menuone
 set completeopt+=noselect
 set completeopt+=noinsert
+set completeopt+=preview
 set shortmess+=c   " Shut off completion messages
 set belloff+=ctrlg " If Vim beeps during completion
 let g:mucomplete#enable_auto_at_startup = 1
@@ -297,7 +244,13 @@ nnoremap <leader><Right> :tabn<CR>
 nnoremap <leader><h> :tabn<CR>
 nnoremap <leader><Left> :tabp<CR>
 nnoremap <leader><l> :tabp<CR>
-nnoremap <leader>b :Telescope git_branches<CR>
+
+" Git shortcuts
+nnoremap <leader>gb :Telescope git_branches<CR>
+nnoremap <leader>gs :Git<CR>
+nnoremap <leader>gc :Git commit<CR>
+nnoremap <leader>ga :Git add .<CR>
+nnoremap <leader>gp :Git push<CR>
 
 nnoremap k gk
 nnoremap j gj
