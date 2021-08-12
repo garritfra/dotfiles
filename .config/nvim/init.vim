@@ -211,7 +211,6 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --no-ignore-vcs -g "!.g
 " NerdTree
 
 let NERDTreeShowHidden=1
-let NERDTreeCustomOpenArgs={'file':{'where': 't'}}
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
