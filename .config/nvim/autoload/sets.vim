@@ -19,3 +19,4 @@ set linebreak
 set laststatus=2
 set noshowmode
 set nohlsearch
+set termguicolors                           " For displaying color hex codes

@@ -29,4 +29,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Antimony syntax highlighting
 Plug 'antimony-lang/antimony.vim'
+
+" Display color codes
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
 call plug#end()
