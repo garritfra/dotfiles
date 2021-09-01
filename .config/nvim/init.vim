@@ -251,6 +251,9 @@ nnoremap <leader>gc :Git commit<CR>
 nnoremap <leader>ga :Git add .<CR>
 nnoremap <leader>gp :Git push<CR>
 
+nnoremap g. :GitGutterNextHunk<CR>
+nnoremap g, :GitGutterPrevHunk<CR>
+
 nnoremap k gk
 nnoremap j gj
 
