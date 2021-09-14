@@ -2,6 +2,7 @@ call plug#begin()
 Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
