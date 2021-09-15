@@ -280,6 +280,10 @@ vnoremap <C-F> <cmd>Telescope live_grep<cr>
 nnoremap <C-p> <cmd>Telescope find_files<CR>
 vnoremap <C-p> <cmd>Telescope find_files<CR>
 
+" ctrl c (Find in git status)
+nnoremap <C-s> <cmd>Telescope git_status<CR>
+vnoremap <C-s> <cmd>Telescope git_status<CR>
+
 " Use yank to copy to clipboard
 vnoremap y "*y
 

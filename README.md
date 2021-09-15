@@ -30,3 +30,4 @@ This list is incomplete, but I try to keep it up to date.
 | `<leader>g.` | Go to next change in file     |
 | `<leader>g,` | Go to previous change in file |
 | `<leader>gx` | Undo change under cursor      |
+| `<ctrl>s`    | Search through all changes    |
