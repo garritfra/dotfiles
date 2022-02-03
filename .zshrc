@@ -1,7 +1,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export EDITOR="/usr/local/bin/nvim"
+export EDITOR="/opt/homebrew/bin/nvim"
 
 # Add Flutter
 export PATH=$PATH:~/sources/flutter/bin
@@ -11,6 +11,9 @@ export PATH=$PATH:~/sources/scripts/
 
 # Add cargo
 export PATH=$PATH:~/.cargo/bin
+
+# Set GOPATH
+export GOPATH=~/sources/go
 
 # Add homebrew (multiple platforms)
 CPU=$(uname -p)
@@ -179,6 +182,13 @@ fi
 
 autoload bashcompinit && bashcompinit
 
+if command -v gpg 1>/dev/null 2>&1; then
+    export GPG_TTY=$(tty)
+    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+    gpgconf --launch gpg-agent
+    ssh-add -l 1>/dev/null 2>&1
+fi
+
 # Start X if necessary
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then exec startx; fi
 
@@ -190,3 +200,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+source /Users/garrit/.config/broot/launcher/bash/br
