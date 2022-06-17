@@ -45,7 +45,14 @@ return packer.startup(function(use)
   ---------------------
   use "wbthomason/packer.nvim"                       -- Packer manage itself
 
+  use { "nvim-lua/plenary.nvim" }
+
   use { "ellisonleao/gruvbox.nvim" }
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
 
   -- Automatically set up your configuration after cloning packer.nvim
