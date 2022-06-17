@@ -44,12 +44,13 @@ return packer.startup(function(use)
   -- Package Manager --
   ---------------------
   use "wbthomason/packer.nvim"                       -- Packer manage itself
+
+  use { "ellisonleao/gruvbox.nvim" }
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
-© 2022 GitHub, Inc.
-Terms
-
