@@ -7,6 +7,7 @@ Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'pangloss/vim-javascript'
+Plug 'elixir-editors/vim-elixir'
 Plug 'mxw/vim-jsx'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
@@ -20,9 +21,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-
-" Defines the sneak motion
-Plug 'justinmk/vim-sneak'
 
 " HTML auto completion
 Plug 'alvan/vim-closetag'

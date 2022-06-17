@@ -143,6 +143,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap keys for applying codeAction to the current buffer.
 nmap <leader>ac  <Plug>(coc-codeaction)
 nmap <M-CR> <Plug>(coc-codeaction)
+vmap <M-CR> <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>f  <Plug>(coc-fix-current)
 
@@ -206,7 +207,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " FZF
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --no-ignore-vcs -g "!.git/" -g "!node_modules/"'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow -g "!.git/" -g "!node_modules/"'
 
 " NerdTree
 
@@ -254,6 +255,9 @@ nnoremap <leader>gp :Git push<CR>
 nnoremap <leader>g. :GitGutterNextHunk<CR>
 nnoremap <leader>g, :GitGutterPrevHunk<CR>
 nnoremap <leader>gx :GitGutterUndoHunk<CR>
+
+" Refactorings
+nnoremap <leader>rr :CocCommand document.renameCurrentWord<CR>
 
 nnoremap k gk
 nnoremap j gj
