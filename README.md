@@ -2,6 +2,13 @@
 
 ## NeoVim
 
+Installing the dotfiles can be done via GNU Stow. Make sure you're in the
+`.config/nvim` directory!
+
+```
+stow -t ~/.config/nvim .
+```
+
 ### Keybindings
 
 This list is incomplete, but I try to keep it up to date.
