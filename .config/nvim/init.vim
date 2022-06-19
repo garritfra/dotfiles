@@ -262,6 +262,9 @@ nnoremap <leader>rr :CocCommand document.renameCurrentWord<CR>
 nnoremap k gk
 nnoremap j gj
 
+" Terminal convenience
+tnoremap <Esc> <C-\><C-n>
+
 " Alt-Backspace to delete word backwards
 inoremap <M-BS> <C-w>
 
