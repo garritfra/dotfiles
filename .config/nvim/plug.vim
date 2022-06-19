@@ -12,6 +12,7 @@ Plug 'mxw/vim-jsx'
 Plug 'luochen1990/rainbow'
 Plug 'preservim/nerdcommenter'
 Plug 'kshenoy/vim-signature'
+Plug 'wakatime/vim-wakatime'
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
