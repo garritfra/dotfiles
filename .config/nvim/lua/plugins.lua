@@ -43,7 +43,7 @@ return packer.startup(function(use)
   ---------------------
   -- Package Manager --
   ---------------------
-  use "wbthomason/packer.nvim"                       -- Packer manage itself
+  use "wbthomason/packer.nvim"                      -- Packer manage itself
 
   use { "nvim-lua/plenary.nvim" }
 
@@ -54,6 +54,37 @@ return packer.startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  ---------------------
+  -- LSP Extensions  --
+  ---------------------
+  use 'neovim/nvim-lspconfig'                       -- Configurations for Nvim LSP
+
+  use {
+    "williamboman/nvim-lsp-installer",
+    requires = {
+      { "neovim/nvim-lspconfig" },
+      { "simrat39/rust-tools.nvim" },
+      { "jose-elias-alvarez/typescript.nvim" },
+      { "someone-stole-my-name/yaml-companion.nvim" },
+      {
+        "Saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        config = function()
+          require("crates").setup()
+        end,
+      },
+      {
+        "vuki656/package-info.nvim",
+        event = { "BufRead package.json" },
+        config = function()
+          require("package-info").setup()
+        end
+      },
+    },
+    config = function()
+      require("plugins.lsp-setup")
+    end,
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
