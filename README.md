@@ -1,5 +1,11 @@
 # Dotfiles
 
+## Installing
+
+```
+stow .
+```
+
 ## NeoVim
 
 ### Keybindings
