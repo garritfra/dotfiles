@@ -3,7 +3,7 @@
 ## Installing
 
 ```
-stow .
+stow -t ~/ .
 ```
 
 ## NeoVim
