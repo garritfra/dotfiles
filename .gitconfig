@@ -1,1 +1,9 @@
-/Users/garrit/.gitconfig
+[user]
+    name = Garrit Franke
+    email = garrit@slashdev.space
+
+[includeIf "gitdir:~/appmotion/"]
+    path = ~/.gitconfig-appmotion
+
+[includeIf "gitdir:~/sources/"]
+    path = ~/.gitconfig-personal
