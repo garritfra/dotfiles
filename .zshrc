@@ -80,54 +80,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Functions
-
-adb_screenshot() {
-    adb shell screencap -p > ~/Desktop/screenshot.png
-}
-
-pull_develop() {
-    CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-
-    STASHED_CHANGES=$(git stash | wc -w)
-    echo "Changes have been stashed"
-
-    git checkout develop
-    git pull
-    git checkout $CURRENT_BRANCH
-
-    if [ $STASHED_CHANGES -gt 5 ] 
-    then
-        git stash pop
-        echo "Changes have been unstashed"
-    fi
-
-    echo "Pull complete"
-}
-
-checkout() {
-    [ -z ${1+x} ] && echo "Usage: $0 <substring>" && return 1
-    
-    git fetch
-
-    BRANCHES=$(git branch -a \
-        | sed "s/remotes\/origin\///; s/\*//; s/^ *//;s/ *$//" \
-        | awk '!seen[$0]++' \
-        | grep $1
-    )
-
-    BRANCH_COUNT=$(echo $BRANCHES | wc -l)
-    
-    if [[ "$BRANCH_COUNT" -gt 1 ]]
-    then
-        echo "More than one branch found:"
-        echo $BRANCHES
-        return 1
-    fi
-
-    git checkout $BRANCHES
-}
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
