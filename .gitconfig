@@ -7,3 +7,10 @@
 
 [includeIf "gitdir:~/sources/"]
     path = ~/.gitconfig-personal
+[init]
+	defaultBranch = main
+
+[push]
+    autoSetupRemote = true
+[status]
+	submoduleSummary = true

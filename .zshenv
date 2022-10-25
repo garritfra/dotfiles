@@ -4,7 +4,7 @@ if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 
-export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
+export LIBRARY_PATH="$LIBRARY_PATH:$(/opt/homebrew/bin/brew --prefix)/lib"
 
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/opt/homebrew/bin/nvim"
