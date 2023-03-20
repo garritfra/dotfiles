@@ -1,17 +1,3 @@
-# Add homebrew (multiple platforms)
-CPU=$(uname -p)
-if [[ "$CPU" == "arm" ]]; then
-  export PATH="/opt/homebrew/bin:$PATH"
-  alias oldbrew=/usr/local/bin/brew
-else
-  export PATH="/usr/local/bin:$PATH"
-fi
-
-# LLVM
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/llvm/lib"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -110,7 +96,6 @@ alias vim="nvim"
 alias note='vim ~/data/notes/$(date "+%y-%m-%d").md'
 alias vimrc="vim ~/.config/nvim/init.vim"
 
-neofetch
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi

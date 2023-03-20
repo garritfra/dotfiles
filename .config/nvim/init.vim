@@ -218,7 +218,7 @@ autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTr
     \ quit | endif
 
 " Mirror the NERDTree before showing it. This makes it the same on all tabs.
-nnoremap <C-n> :NERDTreeMirror<CR>:NERDTreeFind<CR>
+nnoremap <C-t> :NERDTreeMirror<CR>:NERDTreeFind<CR>
 
 " Rainbow Brackets
 let g:rainbow_active = 1
@@ -267,9 +267,6 @@ tnoremap <Esc> <C-\><C-n>
 
 " Alt-Backspace to delete word backwards
 inoremap <M-BS> <C-w>
-
-" NerdTree bindings
-nnoremap <C-t> :NERDTreeToggle<CR>
 
 " ctrl alt up/down (Move lines)
 nnoremap <C-M-j> :m .+1<CR>==
