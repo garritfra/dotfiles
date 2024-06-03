@@ -11,17 +11,18 @@ if which ruby >/dev/null && which gem >/dev/null; then
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-export HOMEBREW_PREFIX=$(brew --prefix)
-
-export HOMEBREW_NO_INSTALL_CLEANUP=1
-
 # Brew
 if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
   export PATH=/opt/homebrew/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
+export HOMEBREW_PREFIX=$(brew --prefix)
 
 export LIBRARY_PATH="$LIBRARY_PATH:$HOMEBREW_PREFIX/lib"
+
+# Node
+export NVM_DIR="~/.nvm"
+source ~/.nvm/nvm.sh
 
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="/opt/homebrew/bin/nvim"
@@ -42,17 +43,9 @@ export GOPATH=~/sources/go
 source ~/.cargo/env
 export PATH=~/.cargo/bin:$PATH
 
-# Your additional kubeconfig files should be inside ~/.kube/config-files
-ADD_KUBECONFIG_FILES="$HOME/.kube/configs"
-mkdir -p "${ADD_KUBECONFIG_FILES}"OIFS="$IFS"
-IFS=$'\n'
-for kubeconfigFile in `find "${ADD_KUBECONFIG_FILES}" -type f -name "*.yml" -o -name "*.yaml"`
-do
-    export KUBECONFIG="$kubeconfigFile:$KUBECONFIG"
-done
-IFS="$OIFS"
+# Kubernetes
+KUBE_CONFIG_DIR=~/.kube/configs
+export KUBECONFIG=$(find $KUBE_CONFIG_DIR -type f | tr '\n' ':' | sed 's/:$//')
 
-[ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
-[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-. "$HOME/.cargo/env"
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
